@@ -2,14 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import {logout} from '../../store'
+import './navBar.css'
+
+
+// const navbarStyle = {
+//   "overflow-x" : "hidden"
+// }
 
 const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <h1>BOILERMAKER</h1>
-    <nav>
+  <div >
+    <nav className="nav-extended blue-grey darken-4">
+    <div className="nav-wrapper">
+    <a href="#" className="brand-logo left">International</a>
+
+    
       {isLoggedIn ? (
-        <div>
+        <div className="right">
           {/* The navbar will show these links after you log in */}
           <Link to="/home">Home</Link>
           <a href="#" onClick={handleClick}>
@@ -17,14 +26,24 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           </a>
         </div>
       ) : (
-        <div>
+        <div className="right">
           {/* The navbar will show these links before you log in */}
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
         </div>
+        
       )}
+  
+ 
+    <div className="nav-content">
+      <ul className="tabs tabs-fixed-width tabs-transparent extendedNav" >
+        <li className="tab"><a href="#test1">Test 1</a></li>
+        <li className="tab"><a className="active" href="#test2">Test 2</a></li>
+        <li className="tab disabled"><a href="#test3">Disabled Tab</a></li>
+      </ul>
+    </div>
+    </div>
     </nav>
-    <hr />
   </div>
 )
 
